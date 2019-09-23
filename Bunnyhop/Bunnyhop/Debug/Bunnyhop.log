@@ -1,0 +1,6 @@
+﻿  Bunnyhop.cpp
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(40,12): warning C4477:  'printf' : format string '%p' requires an argument of type 'void *', but variadic argument 1 has type 'DWORD'
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(38,1): warning C4996:  'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1274): message :  see declaration of 'scanf'
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(88,12): warning C4477:  'printf' : format string '%p' requires an argument of type 'void *', but variadic argument 1 has type 'DWORD'
+  Bunnyhop.vcxproj -> C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Debug\Bunnyhop.exe

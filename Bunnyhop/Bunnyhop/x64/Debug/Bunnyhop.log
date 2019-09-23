@@ -1,0 +1,13 @@
+﻿  Bunnyhop.cpp
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(40,12): warning C4477:  'printf' : format string '%p' requires an argument of type 'void *', but variadic argument 1 has type 'DWORD'
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(40,12): warning C4313:  'printf': '%p' in format string conflicts with argument 1 of type 'DWORD'
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(38,1): warning C4996:  'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1274): message :  see declaration of 'scanf'
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(85,40): warning C4311:  'type cast': pointer truncation from 'HMODULE' to 'DWORD'
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(85,40): warning C4302:  'type cast': truncation from 'HMODULE' to 'DWORD'
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(86,61): warning C4312:  'type cast': conversion from 'unsigned long' to 'LPVOID' of greater size
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(87,65): warning C4312:  'type cast': conversion from 'unsigned long' to 'LPVOID' of greater size
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(88,12): warning C4477:  'printf' : format string '%p' requires an argument of type 'void *', but variadic argument 1 has type 'DWORD'
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(88,12): warning C4313:  'printf': '%p' in format string conflicts with argument 1 of type 'DWORD'
+C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\Bunnyhop\Bunnyhop.cpp(114,82): warning C4312:  'type cast': conversion from 'unsigned long' to 'LPVOID' of greater size
+  Bunnyhop.vcxproj -> C:\Users\awsom\Documents\codestuff\greyhat\Bunnyhop\x64\Debug\Bunnyhop.exe

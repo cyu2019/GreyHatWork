@@ -1,0 +1,4 @@
+﻿  ForceAttack.cpp
+C:\Users\awsom\Documents\codestuff\greyhat\ForceAttack\ForceAttack\ForceAttack.cpp(47,9): warning C4477:  'printf' : format string '%p' requires an argument of type 'void *', but variadic argument 1 has type 'DWORD'
+C:\Users\awsom\Documents\codestuff\greyhat\ForceAttack\ForceAttack\ForceAttack.cpp(87,9): warning C4477:  'printf' : format string '%p' requires an argument of type 'void *', but variadic argument 1 has type 'DWORD'
+  ForceAttack.vcxproj -> C:\Users\awsom\Documents\codestuff\greyhat\ForceAttack\Debug\ForceAttack.exe
