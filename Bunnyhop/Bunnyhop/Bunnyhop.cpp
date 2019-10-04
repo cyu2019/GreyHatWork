@@ -44,14 +44,14 @@ void readDword(DWORD* dst, char* prompt)
 
 int main()
 {
-    DWORD dwForceJump = 0x51AD5A8;
-    //readDword(&dwForceJump, "Enter the ForceJump offset (in hex): client_panorama.dll+0x");
+    DWORD dwForceJump;
+    readDword(&dwForceJump, "Enter the ForceJump offset (in hex): client_panorama.dll+0x");
 
-	DWORD dwLocalPlayer = 0x4D09EF4;
-    //readDword(&dwLocalPlayer, "Enter the LocalPlayer offset (in hex): client_panorama.dll+0x");
+    DWORD dwLocalPlayer;
+    readDword(&dwLocalPlayer, "Enter the LocalPlayer offset (in hex): client_panorama.dll+0x");
 
-    DWORD dw_m_fFlags = 0x104;
-    //readDword(&dw_m_fFlags, "Enter the m_fFlags offset (in hex): LocalPlayer+0x");
+    DWORD dw_m_fFlags;
+    readDword(&dw_m_fFlags, "Enter the m_fFlags offset (in hex): LocalPlayer+0x");
 
     // Find the CS:GO game window to get the game's process ID.
     // This is a hacky way to do this, but it works for most programs.
@@ -112,7 +112,7 @@ int main()
             {
                 int flags;
                 ReadProcessMemory(hProcess, (LPVOID)(dwLocalPlayer + dw_m_fFlags), &flags, sizeof(flags), NULL);
-				printf("%x\n", flags);
+
                 if (flags & FL_ONGROUND)
                 {
                     BYTE data;

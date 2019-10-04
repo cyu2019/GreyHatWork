@@ -18,10 +18,8 @@ HMODULE FindModule(HANDLE hProcess, const char* szModuleName)
 	for (unsigned int i = 0; i < cbNeeded / sizeof(HMODULE); i++)
 	{
 		char szModName[MAX_PATH];
-		//printf("%d \n", i);
 		if (GetModuleBaseName(hProcess, hMods[i], szModName, sizeof(szModName) / sizeof(char)))
 		{
-			//printf("%s \n",szModName);
 			if (strcmp(szModuleName, szModName) == 0)
 			{
 				return hMods[i];
@@ -33,19 +31,14 @@ HMODULE FindModule(HANDLE hProcess, const char* szModuleName)
 
 int main()
 {
-	DWORD dwForceAttack = 0x313B5B0;
-	DWORD dwPlayerAddress = 0x51ABD30;
-	DWORD dwCrosshairId = 0x0000B3AC;
-	/*
+	DWORD dwForceAttack = 0;
 	do
 	{
 		printf("Enter the ForceAttack offset (in hex): client_panorama.dll+0x");
 		scanf("%x", &dwForceAttack);
-	}
-	while (!dwForceAttack);
-	*/
+	} while (!dwForceAttack);
 	printf("You entered: 0x%p\n", dwForceAttack);
-	
+
 	// Find the CS:GO game window to get the game's process ID.
 	// This is a hacky way to do this, but it works for most programs.
 	printf("Waiting for CS:GO to start...\n");
@@ -75,15 +68,8 @@ int main()
 	}
 
 	// Calculate the address of ForceAttack relative to the base address.
-	DWORD dwClientBase = (DWORD) hClient;
-	LPVOID pForceAttack = (LPVOID) (dwClientBase + dwForceAttack);
-
-	LPVOID pPlayerAddress = (LPVOID)(dwClientBase + dwPlayerAddress);
-	DWORD dynamicPlayerAddress;
-	ReadProcessMemory(hProcess, pPlayerAddress, &dynamicPlayerAddress, sizeof(dynamicPlayerAddress), NULL);
-
-	LPVOID pCrossHairId = (LPVOID)(dynamicPlayerAddress + dwCrosshairId);
-
+	DWORD dwClientBase = (DWORD)hClient;
+	LPVOID pForceAttack = (LPVOID)(dwClientBase + dwForceAttack);
 	printf("client_panorama.dll = 0x%p\n", dwClientBase);
 	printf("ForceAttack = 0x%p\n", pForceAttack);
 
@@ -102,25 +88,7 @@ int main()
 			Sleep(100);
 			continue;
 		}
-		BYTE crosshairId;
-		ReadProcessMemory(hProcess, pCrossHairId, &crosshairId, sizeof(crosshairId), NULL);
-		//printf("%d\n",crosshairId);
-		if (crosshairId > 0 != wasDown) {
-			// Set the first bit of ForceAttack's address to 1 if spacebar was pressed, and 0 if spacebar was released.
-			// To do this, we first read the original value from the game's memory, set the bit, then write it back.
-			BYTE data;
-			// Read 1 byte from the game at ForceAttack's address into `data`
-			ReadProcessMemory(hProcess, pForceAttack, &data, sizeof(data), NULL);
-			// Set the bit
-			data ^= (data & 1) ^ !!(crosshairId > 0);
-			// Write 1 byte of `data` into the game at ForceAttack's address
-			WriteProcessMemory(hProcess, pForceAttack, &data, sizeof(data), NULL);
-			wasDown = true;
-		}
-		wasDown = crosshairId > 0;
 
-
-		/*
 		// GetAsyncKeyState returns nonzero if the key is pressed.
 		int spaceDown = GetAsyncKeyState(VK_SPACE);
 		if (spaceDown != wasDown)
@@ -129,14 +97,13 @@ int main()
 			// To do this, we first read the original value from the game's memory, set the bit, then write it back.
 			BYTE data;
 			// Read 1 byte from the game at ForceAttack's address into `data`
-			ReadProcessMemory (hProcess, pForceAttack, &data, sizeof(data), NULL);
+			ReadProcessMemory(hProcess, pForceAttack, &data, sizeof(data), NULL);
 			// Set the bit
 			data ^= (data & 1) ^ !!spaceDown;
 			// Write 1 byte of `data` into the game at ForceAttack's address
 			WriteProcessMemory(hProcess, pForceAttack, &data, sizeof(data), NULL);
 		}
 		wasDown = spaceDown;
-		*/
 		// When we have an update loop like this, it's important to Sleep each time to avoid wasting cpu time.
 		Sleep(1);
 	}
@@ -151,6 +118,6 @@ exit:
 		CloseHandle(hProcess);
 	}
 	_getch(); // read a character so the window doesn't close immediately
-    return 0;
+	return 0;
 }
 

@@ -1,0 +1,3 @@
+﻿  TriggerBot.cpp
+C:\Users\awsom\Documents\codestuff\greyhat\TriggerBot\TriggerBot\TriggerBot.cpp(23,9): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'HANDLE'
+  TriggerBot.vcxproj -> C:\Users\awsom\Documents\codestuff\greyhat\TriggerBot\Debug\TriggerBot.exe
